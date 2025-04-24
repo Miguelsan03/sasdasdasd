@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">qta2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="cerrar">cerrar</string>
+    <string name="hola">hola!</string>
+    <string name="instrucciones_mitades"><![CDATA[
+<b>Te voy a ayudar a solucionar el problema de las 2 mitades.</b><br><br>
+1. Ingresa una cadena de caracteres.<br>
+2. Te ayudaré a cortar la cadena en dos partes "iguales" (si la longitud de la cadena es impar, colocaré el carácter central en la primera cadena, de modo que la primera cadena contenga un carácter más que la segunda).<br>
+3. Luego imprimiré la nueva cadena en una sola fila con la primera y la segunda mitad intercambiadas (la segunda mitad es la primera y la primera mitad es la segunda)
+]]></string>
+</resources>

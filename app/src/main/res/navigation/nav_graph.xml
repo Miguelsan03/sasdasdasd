@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inicioFragment">
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.example.qta2.inicioFragment"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_iniciarSesionFragment2"
+            app:destination="@id/iniciarSesionFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/iniciarSesionFragment2"
+        android:name="com.example.qta2.IniciarSesionFragment"
+        android:label="fragment_iniciar_sesion"
+        tools:layout="@layout/fragment_iniciar_sesion" >
+        <action
+            android:id="@+id/action_iniciarSesionFragment2_to_dosMitadesFragment"
+            app:destination="@id/dosMitadesFragment" />
+        <action
+            android:id="@+id/action_login_to_inicio"
+            app:destination="@id/inicioFragment"
+            app:popUpTo="@id/inicioFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/dosMitadesFragment"
+        android:name="com.example.qta2.DosMitadesFragment"
+        android:label="fragment_dos_mitades"
+        tools:layout="@layout/fragment_dos_mitades">
+        <argument
+            android:name="Correo"
+            app:argType="string"/>
+    </fragment>
+</navigation>
