@@ -26,6 +26,9 @@
             app:destination="@id/inicioFragment"
             app:popUpTo="@id/inicioFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_iniciarSesionFragment2_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
     </fragment>
     <fragment
         android:id="@+id/dosMitadesFragment"

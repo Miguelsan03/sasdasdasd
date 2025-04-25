@@ -43,7 +43,7 @@ class IniciarSesionFragment : Fragment() {
             }
         }
         view.findViewById<MaterialToolbar>(R.id.topAppBar).setNavigationOnClickListener {
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.action_iniciarSesionFragment2_to_inicioFragment)
         }
     }
 }
