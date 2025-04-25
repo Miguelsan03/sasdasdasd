@@ -2,15 +2,18 @@ package com.example.qta2
 
 import android.os.Bundle
 import android.text.Html
+import android.graphics.Color
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.textfield.TextInputEditText
 
 
 class quitarFragmentoFragment : Fragment() {
@@ -30,7 +33,7 @@ class quitarFragmentoFragment : Fragment() {
         val correo = arguments?.getString("Correo") ?: ""
         tvSaludo.text = getString(R.string.hola2, correo)
 
-        val instruccionesText = getString(R.string.quitar_fragmento)
+        val instruccionesText = getString(R.string.instrucciones_quitar_fragmento)
         view.findViewById<TextView>(R.id.instrucciones3TextView).text =  Html.fromHtml(instruccionesText, Html.FROM_HTML_MODE_COMPACT)
 
         fun navigateWithCorreo(destinationId: Int, correo: String) {
@@ -78,6 +81,37 @@ class quitarFragmentoFragment : Fragment() {
                 }
             }
         }
+
+        val inputEditText = view.findViewById<TextInputEditText>(R.id.cadenaQuitarFragmentoEditText)
+        val resultTextView = view.findViewById<TextView>(R.id.textViewResultadoQuitarFragmento)
+        val solveButton = view.findViewById<Button>(R.id.btnSolucionarQuitarFragmento)
+        solveButton.setOnClickListener {
+            val input = inputEditText.text.toString().trim()
+
+            if (input.isEmpty()) {
+                resultTextView.visibility = View.VISIBLE
+
+                resultTextView.text = "Ups! algo salió mal revisa tu cadena."
+                resultTextView.setTextColor(Color.RED)
+                return@setOnClickListener
+            }
+
+            val firstIndex = input.indexOf("h")
+            val lastIndex = input.lastIndexOf("h")
+
+            if (firstIndex == -1 || firstIndex == lastIndex)
+                {
+                    resultTextView.visibility = View.VISIBLE
+                resultTextView.text = "Ups! La cadena debe tener al menos dos letras 'h'."
+                resultTextView.setTextColor(Color.RED)
+                return@setOnClickListener
+            }
+
+            val result = input.substring(0, firstIndex) + input.substring(lastIndex + 1)
+            resultTextView.visibility = View.VISIBLE
+            resultTextView.text = result
+            resultTextView.setTextColor(Color.BLACK)
+            }
 
         view.findViewById<MaterialToolbar>(R.id.topAppBarQuitarFragmento).setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {

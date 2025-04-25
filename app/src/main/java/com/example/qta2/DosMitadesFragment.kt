@@ -93,6 +93,7 @@ class DosMitadesFragment : Fragment() {
             val input = inputEditText.text.toString()
 
             if (input.isEmpty()) {
+                resultTextView.visibility = View.VISIBLE
                 resultTextView.text = getString(R.string.ups_algo_sali_mal_revisa_tu_cadena)
                 resultTextView.setTextColor(Color.RED)
             } else {
@@ -100,6 +101,7 @@ class DosMitadesFragment : Fragment() {
                 val primeraMitad = input.substring(0, mitad)
                 val segundaMitad = input.substring(mitad)
                 resultTextView.text = segundaMitad + primeraMitad
+                resultTextView.visibility = View.VISIBLE
                 resultTextView.setTextColor(Color.BLACK)
             }
         }

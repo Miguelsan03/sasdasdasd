@@ -73,6 +73,9 @@
         android:name="com.example.qta2.quitarFragmentoFragment"
         android:label="fragment_quitar_fragmento"
         tools:layout="@layout/fragment_quitar_fragmento" >
+        <argument
+            android:name="Correo"
+            app:argType="string"/>
         <action
             android:id="@+id/action_quitarFragmentoFragment_to_dosPalabrasFragment"
             app:destination="@id/dosPalabrasFragment" />

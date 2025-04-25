@@ -17,15 +17,14 @@ import com.google.android.material.textfield.TextInputEditText
 
 
 class DosPalabrasFragment : Fragment() {
-
-
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_dos_palabras, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -34,8 +33,16 @@ class DosPalabrasFragment : Fragment() {
         val correo = arguments?.getString("Correo") ?: ""
         tvSaludo.text = getString(R.string.hola2, correo)
 
-        val instruccionesText = getString(R.string.instrucciones_dos_palabras)
-        view.findViewById<TextView>(R.id.instrucciones2TextView).text =  Html.fromHtml(instruccionesText, Html.FROM_HTML_MODE_COMPACT)
+
+        view.findViewById<MaterialToolbar>(R.id.topAppBarDosPalabras).setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.close -> {
+                    findNavController().navigate(R.id.action_dosPalabrasFragment_to_iniciarSesionFragment2)
+                    true
+                }
+                else -> false
+            }
+        }
 
         fun navigateWithCorreo(destinationId: Int, correo: String) {
             when (destinationId) {
@@ -82,35 +89,44 @@ class DosPalabrasFragment : Fragment() {
             }
         }
 
+
+        val instruccionesText = getString(R.string.instrucciones_dos_palabras)
+        view.findViewById<TextView>(R.id.instrucciones2TextView).text =  Html.fromHtml(instruccionesText, Html.FROM_HTML_MODE_COMPACT)
+
         val inputEditText = view.findViewById<TextInputEditText>(R.id.cadenaDosPalabrasEditText)
         val resultTextView = view.findViewById<TextView>(R.id.textViewResultadoDosPalabras)
         val validarButton = view.findViewById<MaterialButton>(R.id.btnSolucionarDosPalabras)
 
         validarButton.setOnClickListener {
-            val input = inputEditText.text.toString()
+            val input = inputEditText.text.toString().trim()
 
             if (input.isEmpty()) {
+                resultTextView.visibility = View.VISIBLE
+
                 resultTextView.text = getString(R.string.ups_algo_sali_mal_revisa_tu_cadena)
                 resultTextView.setTextColor(Color.RED)
-            } else {
-                val mitad = (input.length + 1) / 2
-                val primeraMitad = input.substring(0, mitad)
-                val segundaMitad = input.substring(mitad)
-                resultTextView.text = segundaMitad + primeraMitad
-                resultTextView.setTextColor(Color.BLACK)
+
+                return@setOnClickListener
+            }
+
+            val words = input.split(" ")
+            if (words.size != 2) {
+                resultTextView.visibility = View.VISIBLE
+                resultTextView.text = getString(R.string.ups_algo_sali_mal_revisa_tu_cadena)
+                resultTextView.setTextColor(Color.RED)
+                return@setOnClickListener
+            }
+
+            val resultado = "${words[1]} ${words[0]}"
+            resultTextView.visibility = View.VISIBLE
+            resultTextView.text = resultado
+            resultTextView.setTextColor(Color.BLACK)
             }
         }
 
-        view.findViewById<MaterialToolbar>(R.id.topAppBarDosPalabras).setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.close -> {
-                    findNavController().navigate(R.id.action_dosPalabrasFragment_to_iniciarSesionFragment2)
-                    true
-                }
-                else -> false
-            }
-        }
-    }
+
+
 
 
 }
+
