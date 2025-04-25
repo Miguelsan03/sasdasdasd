@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dosMitadesNav"
+        android:enabled="true"
+        android:icon="@drawable/diagram_2_fill"
+        android:title="@string/dos_mitades"/>
+    <item
+        android:id="@+id/dosPalabrasNav"
+        android:enabled="true"
+        android:icon="@drawable/group_btn_account"
+        android:title="@string/dos_palabras"/>
+    <item
+        android:id="@+id/quitarFragmentoNav"
+        android:enabled="true"
+        android:icon="@drawable/group_btn_settings"
+        android:title="@string/quitar_fragmento"/>
+</menu>

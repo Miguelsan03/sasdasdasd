@@ -14,4 +14,21 @@
 2. Te ayudaré a cortar la cadena en dos partes "iguales" (si la longitud de la cadena es impar, colocaré el carácter central en la primera cadena, de modo que la primera cadena contenga un carácter más que la segunda).<br>
 3. Luego imprimiré la nueva cadena en una sola fila con la primera y la segunda mitad intercambiadas (la segunda mitad es la primera y la primera mitad es la segunda)
 ]]></string>
+    <string name="ingresa_una_cadena_de_caracteres">Ingresa una cadena de caracteres</string>
+    <string name="solucionar">Solucionar</string>
+    <string name="dosmitadesnav">dosMitadesNav</string>
+    <string name="dospalabrasnav">dosPalabrasNav</string>
+    <string name="quitarfragmentonav">quitarFragmentoNav</string>
+    <string name="dos_mitades">Dos mitades</string>
+    <string name="dos_palabras">Dos palabras</string>
+    <string name="quitar_fragmento">Quitar fragmento</string>
+    <string name="holaRespuesta">Hola %1$s</string>
+    <string name="hola2">Hola %1$s</string>
+    <string name="solucion">Solucion</string>
+    <string name="instrucciones_dos_palabras"><![CDATA[
+<b>Te voy a ayudar a solucionar el problema de las 2 palabras.</b><br><br>
+1. Ingresa una cadena de caracteres que contenga solo 2 palabras separadas por un espacio.<br>
+2. Imprimiré una nueva cadena con las posiciones intercambiadas<br>
+<i>(la segunda palabra se imprime primero)</i>
+]]></string>
 </resources>

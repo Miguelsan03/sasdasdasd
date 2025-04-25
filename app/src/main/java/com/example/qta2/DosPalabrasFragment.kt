@@ -2,36 +2,36 @@ package com.example.qta2
 
 import android.os.Bundle
 import android.text.Html
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.os.bundleOf
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class DosMitadesFragment : Fragment() {
+class DosPalabrasFragment : Fragment() {
+
+
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_dos_mitades, container, false)
+        return inflater.inflate(R.layout.fragment_dos_palabras, container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tvSaludo = view.findViewById<TextView>(R.id.mensajeSaludo)
+        val tvSaludo = view.findViewById<TextView>(R.id.mensajeSaludo2)
 
         val correo = arguments?.getString("Correo") ?: ""
         tvSaludo.text = getString(R.string.hola2, correo)
 
+        val instruccionesText = getString(R.string.instrucciones_dos_palabras)
+        view.findViewById<TextView>(R.id.instrucciones2TextView).text =  Html.fromHtml(instruccionesText, Html.FROM_HTML_MODE_COMPACT)
 
         fun navigateWithCorreo(destinationId: Int, correo: String) {
             when (destinationId) {
@@ -51,7 +51,7 @@ class DosMitadesFragment : Fragment() {
         }
 
         view.findViewById<BottomNavigationView>(R.id.bottom_navigation).apply {
-            selectedItemId = R.id.dosMitadesNav
+            selectedItemId = R.id.dosPalabrasNav
 
             setOnItemSelectedListener { item ->
                 when(item.itemId) {
@@ -71,26 +71,7 @@ class DosMitadesFragment : Fragment() {
                 }
             }
         }
-
-
-        val instruccionesText = getString(R.string.instrucciones_mitades)
-        view.findViewById<TextView>(R.id.instruccionesTextView).text =  Html.fromHtml(instruccionesText, Html.FROM_HTML_MODE_COMPACT)
-
-
-        view.findViewById<MaterialToolbar>(R.id.topAppBarDosMitades).setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.close -> {
-                    findNavController().navigate(R.id.action_dosMitadesFragment_to_iniciarSesionFragment2)
-                    true
-                }
-                else -> false
-            }
-        }
-
     }
 
 
-
 }
-
-

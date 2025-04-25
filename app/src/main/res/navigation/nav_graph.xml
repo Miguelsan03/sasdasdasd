@@ -35,5 +35,29 @@
         <argument
             android:name="Correo"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_dosMitadesFragment_to_dosPalabrasFragment"
+            app:destination="@id/dosPalabrasFragment" />
+        <action
+            android:id="@+id/action_dosMitadesFragment_to_iniciarSesionFragment2"
+            app:destination="@id/iniciarSesionFragment2"
+            app:popUpTo="@id/iniciarSesionFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/dosPalabrasFragment"
+        android:name="com.example.qta2.DosPalabrasFragment"
+        android:label="DosPalabrasFragment">
+        <argument
+            android:name="Correo"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_dosPalabrasFragment_to_dosMitadesFragment"
+            app:destination="@id/dosPalabrasFragment" />
+        <action
+            android:id="@+id/action_dosPalabrasFragment_to_iniciarSesionFragment2"
+            app:destination="@id/iniciarSesionFragment2"
+            app:popUpTo="@id/iniciarSesionFragment2"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

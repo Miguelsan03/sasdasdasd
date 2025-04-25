@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
@@ -25,16 +26,21 @@ class IniciarSesionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val usuarioEditText = view.findViewById<TextInputEditText>(R.id.usuarioEditText)
-        val textoIngresado = usuarioEditText.text.toString()
+
 
         view.findViewById<Button>(R.id.btnIniciarSesion).setOnClickListener {
-            val bundle = bundleOf("Correo" to textoIngresado)
-            findNavController().navigate(
-                R.id.action_iniciarSesionFragment2_to_dosMitadesFragment,
-                bundle
-            )
+            val correo = view.findViewById<TextInputEditText>(R.id.usuarioEditText).text.toString().trim()
 
+            if (correo.isNotEmpty()) {
+                val bundle = bundleOf("Correo" to correo)
+
+                findNavController().navigate(
+                    R.id.action_iniciarSesionFragment2_to_dosMitadesFragment,
+                    bundle
+                )
+            } else {
+                Toast.makeText(context, "Ingresa un correo válido", Toast.LENGTH_SHORT).show()
+            }
         }
         view.findViewById<MaterialToolbar>(R.id.topAppBar).setNavigationOnClickListener {
             findNavController().navigateUp()

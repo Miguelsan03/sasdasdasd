@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DosMitadesFragment">
+    tools:context=".DosPalabrasFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,30 +21,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/top_app_bar"
-            app:title="Dos Mitades"
+            app:title="Dos palabras"
             app:titleCentered="true" />
 
         <TextView
-            android:id="@+id/mensajeSaludo"
+            android:id="@+id/mensajeSaludo2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="1dp"
+            android:layout_gravity="center"
             android:lineSpacingExtra="4dp"
             android:paddingStart="16dp"
+            android:layout_margin="16dp"
             android:text="@string/hola"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.15"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topAppBarDosMitades" />
 
         <TextView
-            android:id="@+id/instruccionesTextView"
+            android:id="@+id/instrucciones2TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -53,12 +51,12 @@
             android:lineSpacingExtra="4dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:text="@string/instrucciones_mitades"
+            android:text="@string/instrucciones_dos_palabras"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mensajeSaludo" />
+            app:layout_constraintTop_toBottomOf="@+id/mensajeSaludo2" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cadenaDosMitadesTextInput"
@@ -70,9 +68,11 @@
             app:boxStrokeErrorColor="@color/verde"
             app:boxStrokeWidth="2dp"
             app:boxStrokeWidthFocused="2dp"
+            android:layout_marginTop="100dp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/instruccionesTextView">
+            app:layout_constraintTop_toBottomOf="@+id/instrucciones2TextView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/usuarioEditText"
@@ -104,19 +104,6 @@
             app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion"
             app:layout_constraintVertical_bias="1.0"
             app:menu="@menu/bottom_navigation_menu" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/solucion"
-            android:textColor="@color/verdeOscuro"
-            android:visibility="invisible"
-            android:textSize="32sp"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
