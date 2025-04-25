@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBarDosMitades"
+            android:id="@+id/topAppBarDosPalabras"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="@color/verde"
@@ -29,9 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="16dp"
             android:lineSpacingExtra="4dp"
             android:paddingStart="16dp"
-            android:layout_margin="16dp"
             android:text="@string/hola"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.15"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topAppBarDosMitades" />
+            app:layout_constraintTop_toBottomOf="@+id/topAppBarDosPalabras" />
 
         <TextView
             android:id="@+id/instrucciones2TextView"
@@ -62,27 +62,27 @@
             android:id="@+id/cadenaDosMitadesTextInput"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:hint="@string/ingresa_una_cadena_de_caracteres"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/verde"
             app:boxStrokeErrorColor="@color/verde"
             app:boxStrokeWidth="2dp"
             app:boxStrokeWidthFocused="2dp"
-            android:layout_marginTop="100dp"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/instrucciones2TextView">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/usuarioEditText"
+                android:id="@+id/cadenaDosPalabrasEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnIniciarSesion"
+            android:id="@+id/btnSolucionarDosPalabras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -93,6 +93,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cadenaDosMitadesTextInput" />
 
+        <TextView
+            android:id="@+id/textViewResultadoDosPalabras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/solucion"
+            android:textColor="@color/verdeOscuro"
+            android:textSize="32sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSolucionarDosPalabras"
+            app:layout_constraintVertical_bias="0.25" />
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
@@ -100,9 +114,8 @@
             android:background="@color/verde"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion"
-            app:layout_constraintVertical_bias="1.0"
             app:menu="@menu/bottom_navigation_menu" />
 
 

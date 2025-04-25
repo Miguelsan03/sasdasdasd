@@ -1,14 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".quitarFragmentoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBarQuitarFragmento"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@color/verde"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/top_app_bar"
+            app:title="Quitar Fragmento"
+            app:titleCentered="true" />
+
+        <TextView
+            android:id="@+id/mensajeSaludo3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:paddingStart="16dp"
+            android:layout_margin="16dp"
+            android:text="@string/hola"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topAppBarQuitarFragmento" />
+
+        <TextView
+            android:id="@+id/instrucciones3TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:lineSpacingExtra="4dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/instrucciones_quitar_fragmento"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mensajeSaludo3" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cadenaDosMitadesTextInput"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/ingresa_una_cadena_de_caracteres"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/verde"
+            app:boxStrokeErrorColor="@color/verde"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidthFocused="2dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instrucciones3TextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cadenaQuitarFragmentoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSolucionarQuitarFragmento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/verde"
+            android:text="@string/solucionar"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cadenaDosMitadesTextInput" />
+
+        <TextView
+            android:id="@+id/textViewResultadoQuitarFragmento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/solucion"
+            android:textColor="@color/verdeOscuro"
+            android:textSize="32sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSolucionarQuitarFragmento"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/verde"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:menu="@menu/bottom_navigation_menu" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

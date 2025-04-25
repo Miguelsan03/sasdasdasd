@@ -31,4 +31,11 @@
 2. Imprimiré una nueva cadena con las posiciones intercambiadas<br>
 <i>(la segunda palabra se imprime primero)</i>
 ]]></string>
+    <string name="instrucciones_quitar_fragmento"><![CDATA[
+<b>Te voy a ayudar a solucionar el problema quitar el fragmento.</b><br><br>
+1. Ingresa una cadena de caracteres en la que por lo menos existe 2 veces la letra <b>h</b>.<br>
+2. Eliminaré de esa cadena la primera y la última aparición de la letra <b>h</b>, así como todos los caracteres entre ellas.<br>
+3. Luego imprimiré la nueva cadena en pantalla.
+]]></string>
+    <string name="ups_algo_sali_mal_revisa_tu_cadena">Ups! algo salió mal revisa tu cadena.</string>
 </resources>

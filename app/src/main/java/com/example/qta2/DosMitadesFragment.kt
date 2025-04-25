@@ -1,5 +1,6 @@
 package com.example.qta2
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
@@ -13,6 +14,8 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 
 
 class DosMitadesFragment : Fragment() {
@@ -47,6 +50,12 @@ class DosMitadesFragment : Fragment() {
                         bundleOf("Correo" to correo)
                     )
                 }
+                R.id.quitarFragmentoFragment -> {
+                    findNavController().navigate(
+                        R.id.quitarFragmentoFragment,
+                        bundleOf("Correo" to correo)
+                    )
+                }
             }
         }
 
@@ -64,7 +73,7 @@ class DosMitadesFragment : Fragment() {
                         true
                     }
                     R.id.quitarFragmentoNav -> {
-                        findNavController().popBackStack()
+                        navigateWithCorreo(R.id.quitarFragmentoFragment, correo)
                         true
                     }
                     else -> false
@@ -75,6 +84,25 @@ class DosMitadesFragment : Fragment() {
 
         val instruccionesText = getString(R.string.instrucciones_mitades)
         view.findViewById<TextView>(R.id.instruccionesTextView).text =  Html.fromHtml(instruccionesText, Html.FROM_HTML_MODE_COMPACT)
+
+        val inputEditText = view.findViewById<TextInputEditText>(R.id.cadenaDosMitadesEditText)
+        val resultTextView = view.findViewById<TextView>(R.id.textViewResultadoDosMitades)
+        val validarButton = view.findViewById<MaterialButton>(R.id.btnSolucionarDosMitades)
+
+        validarButton.setOnClickListener {
+            val input = inputEditText.text.toString()
+
+            if (input.isEmpty()) {
+                resultTextView.text = getString(R.string.ups_algo_sali_mal_revisa_tu_cadena)
+                resultTextView.setTextColor(Color.RED)
+            } else {
+                val mitad = (input.length + 1) / 2
+                val primeraMitad = input.substring(0, mitad)
+                val segundaMitad = input.substring(mitad)
+                resultTextView.text = segundaMitad + primeraMitad
+                resultTextView.setTextColor(Color.BLACK)
+            }
+        }
 
 
         view.findViewById<MaterialToolbar>(R.id.topAppBarDosMitades).setOnMenuItemClickListener { menuItem ->
